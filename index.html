@@ -18,6 +18,7 @@
             align-items: center;
             height: 100vh;
             margin: 0;
+            text-align: center;
         }
 
         .clock {
@@ -28,13 +29,11 @@
         .date {
             font-size: 4vw;
             font-weight: 600;
+            margin-bottom: 2rem;
         }
 
         .weather {
-            position: absolute;
-            top: 15px;
-            right: 20px;
-            font-size: 1.5rem;
+            font-size: 6vw; /* ~3x größer als vorher */
             font-weight: 500;
         }
     </style>
@@ -42,10 +41,9 @@
 
 <body>
 
-<div id="weather" class="weather">Wetter lädt...</div>
-
 <div class="clock" id="clock"></div>
 <div class="date" id="date"></div>
+<div id="weather" class="weather">Wetter lädt...</div>
 
 <script>
 function updateTime() {
@@ -82,10 +80,9 @@ async function updateWeather() {
         const temp = Math.round(data.current.temperature_2m);
         const code = data.current.weather_code;
 
-        // Icons + Beschreibung
         const weatherMap = {
             0: ['☀️', 'Klar'],
-            1: ['🌤️', 'Überwiegennnd klar'],
+            1: ['🌤️', 'Überwiegend klar'],
             2: ['⛅', 'Teilweise bewölkt'],
             3: ['☁️', 'Bewölkt'],
             45: ['🌫️', 'Nebel'],
